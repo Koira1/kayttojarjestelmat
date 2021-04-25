@@ -50,7 +50,6 @@ int main(int argc, char *argv[]) {
   }
   initArray(filepaths, 1);
   insertArray(filepaths, "/bin/");
-  //printf("%s\n", filepaths->path[0]);
   int x = 1;
 
   if(argc == 2) { //BATCH CODE
@@ -59,7 +58,6 @@ int main(int argc, char *argv[]) {
    fp = fopen(argv[1], "r");
    char *buffer = "NULL";
    if(fp == NULL) {
-     //fprintf(stderr, "error: cannot open file '%s'\n", argv[1]);
      write(STDERR_FILENO, error_message, strlen(error_message));
      exit(1);
    }
@@ -82,10 +80,6 @@ int main(int argc, char *argv[]) {
        if(filepaths != NULL){
          freeArray(filepaths);
        }
-       if(args != NULL){
-         //printcircular(args);
-         //freeList(args);
-       }
        exit(0);
      }
 
@@ -96,7 +90,6 @@ int main(int argc, char *argv[]) {
      */
      if(strstr(input, "path") != NULL) {
        int arg_counter = 0;
-       //freeArray(filepaths);
        initArray(filepaths, 1);
        char *args = strtok_r(input, " \t", &saveptr);
        while(args != NULL) {
@@ -150,7 +143,6 @@ int main(int argc, char *argv[]) {
          while(tok1 != NULL) {
            appendArgument(&args, tok1, count, redirect);
            tok1 = strtok_r(NULL, " \t", &tok);
-           //count++;
          }
          tok = strtok_r(NULL, "&", &saveptr);
        }
@@ -164,7 +156,6 @@ int main(int argc, char *argv[]) {
        }
        char* token = strtok_r(input, " \t", &saveptr);
        int count = 0;
-       //appendArgument(&args, token, count);
        while(token != NULL) {
          appendArgument(&args, token, count + 1, redirect);
          token = strtok_r(NULL, " \t", &saveptr);
@@ -176,9 +167,6 @@ int main(int argc, char *argv[]) {
    fclose(fp);
    if(filepaths != NULL){
      freeArray(filepaths);
-   }
-   if(args != NULL){
-     //free(args);
    }
    if(buffer != NULL){
      free(buffer);
@@ -193,22 +181,12 @@ int main(int argc, char *argv[]) {
      strcpy(input, str);
      free(str);
 
-     if(args != NULL){
-       //freeList(args);
-     }
      /*
      Exit implementation
      */
      if(strcmp(input, "exit") == 0){
        if(filepaths != NULL){
          freeArray(filepaths);
-       }
-       if(args != NULL){
-         //printcircular(args);
-         //freeList(args);
-       }
-       if(str != NULL){
-         //free(str);
        }
        exit(0);
      }
@@ -277,8 +255,6 @@ int main(int argc, char *argv[]) {
          tok = strtok_r(NULL, "&", &saveptr);//, &str);
        }
        start_process(args, commands, filepaths);
-       //free(str);
-       //str = NULL;
      } else {
        int redirect;
        if(isRedirect(input) == 1) {
@@ -294,12 +270,9 @@ int main(int argc, char *argv[]) {
          count++;
        }
        start_process_single_command(&args, count, filepaths);
-       //free(str);
-       //str = NULL;
      }
    }
  }
-  //freeArray(filepaths);
   return 0;
 }
 
@@ -334,8 +307,6 @@ void start_process(struct Args* args, int commands_count, struct filePaths* path
   }
   initArray(commands, 1);
 
-  //FILE *fp;
-  //char *filepath;
   int arg_count;
   pid_t pid, wpid;
   int status = 0;
@@ -343,7 +314,6 @@ void start_process(struct Args* args, int commands_count, struct filePaths* path
   char *path = PATH;
   char *process_check;
   char *argument;
-  //char *process_path;
   char *argss;
 
   //printf("COMMANDS: %d\n", commands_count);
@@ -356,7 +326,6 @@ void start_process(struct Args* args, int commands_count, struct filePaths* path
     }
 
     new_head = temp;
-    //printf("Arg: %s\n", new_head->arg);
 
     while(temp != NULL){
       temp2 = temp;
@@ -378,9 +347,7 @@ void start_process(struct Args* args, int commands_count, struct filePaths* path
       argument = malloc(sizeof(char *)); //Initialize arguments
       do {
         char* tmp = temp2->arg; //Store value
-        //printf("TMP: %s\n", tmp);
         is_redirect = temp2->is_redirect; //(0 / 1) either output should be redirected to file or not
-        //argument = realloc(argument, sizeof(tmp) * sizeof(char *)); //Allocate more memory
         strcat(argument, tmp); //store arguments neatly
         strcat(argument, " ");
         temp2 = temp2->next; //travel linked list
@@ -399,25 +366,15 @@ void start_process(struct Args* args, int commands_count, struct filePaths* path
           strcat(argss, " ");
         }
       }
-      //free(argument);
-      //printf("sizeof argss: %ld\n", sizeof(argss));
-      //rintf("sizeof argument: %ld\n", sizeof(argument));
       free(process_check);
-      //free(argument);
-      //printf("ARGUMENTSLENGTH: %d\n", arg_count);
       char* arguments[arg_count + 1]; //Initialize array with the simple counter
       int x;
       //Loop through the paths ('/bin/')
       for(int x1 = 0; x1 < paths->used; x1++){
         char *process_path = malloc(sizeof((*paths->path) + sizeof(*commands->path) * sizeof(char *)));
-        //printf("Process_path1: %s\n", process_path);
         strcat(process_path, paths->path[x1]);
-        //printf("Process_path1: %s\n", process_path);
         strcat(process_path, commands->path[x1]);
-        //printf("Process_path2: %s\n", process_path);
         arguments[0] = strdup(process_path);
-        //printf("PATH: %s\n", arguments[0]);
-        //printf("PATH: %s\n", arguments[0]);
         x = access(process_path, X_OK);
         if(x == 0) {
           free(process_path);
@@ -425,8 +382,6 @@ void start_process(struct Args* args, int commands_count, struct filePaths* path
         }
       }
       if(x == 0) { //Success
-        //printf("ARG: %d\n", arg_count);
-        //arguments[0] = strdup(process_check);
         //char *asd = strtok_r(argss, " \t", &argss); //Command name
         for(int o = 1; o < arg_count; o++) { //Loopy doopy through the arguments
           char *asd = strtok_r(argss, " \t", &argss);
@@ -434,8 +389,6 @@ void start_process(struct Args* args, int commands_count, struct filePaths* path
           arguments[o] = strdup(asd);
         }
         arguments[arg_count] = NULL; //Last argument is NULL
-        //printf("PERKELE: %s\n", arguments[arg_count - 1]);
-        //free(argss);
         if(is_redirect == 1) {
           int xz = 0;
           int bool = 0;
@@ -457,9 +410,6 @@ void start_process(struct Args* args, int commands_count, struct filePaths* path
           dup2(fd, 1);
           close(fd);
         }
-        //free(argument);
-        //free(process_check);
-        //ptr = *arguments;
         execv(arguments[0], arguments); //Execute
       } else {
         write(STDERR_FILENO, error_message, strlen(error_message));
@@ -470,7 +420,6 @@ void start_process(struct Args* args, int commands_count, struct filePaths* path
     }
   }
   freeArray(commands);
-  //freeList(head);
   freeList(new_head);
 }
 
@@ -596,7 +545,7 @@ int start_process_single_command(struct Args** args, int count, struct filePaths
       return 0;
     }
   } else {
-    printf("Shit outta luck\n");
+    write(STDERR_FILENO, error_message, strlen(error_message));
   }
   return 0;
 
@@ -628,7 +577,7 @@ void appendArgument(struct Args** args, char argument[], int arg_count, int is_r
   //printf("%s\n", argument);
 
   if(new_arg == NULL) {
-    fprintf(stderr, "Malloc failed\n");
+    write(STDERR_FILENO, error_message, strlen(error_message));
     exit(1);
   }
   struct Args *last = *args;
