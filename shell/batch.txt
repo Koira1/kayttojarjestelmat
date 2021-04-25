@@ -1,0 +1,4 @@
+path /asd/ /bin/
+ls -ls > output & ls -la /tmp & ls
+ls -ls
+exit

@@ -1,0 +1,43 @@
+batch.txt
+ls
+output
+output.txt
+test
+wish
+wish.c
+5 13:36 .
+drwxrwxr-x 5 semi semi  4096 Apr 19 09:57 ..
+-rw-rw-r-- 1 semi semi    52 Apr 25 13:32 batch.txt
+-rw-rw-r-- 1 semi semi     0 Apr 18 06:22 ls
+-rw-rw-r-- 1 semi semi  2326 Apr 25 13:37 output
+-rw-rw-r-- 1 semi semi   376 Apr 23 09:05 output.txt
+-rw-rw-r-- 1 semi semi    24 Apr 18 05:07 test
+-rwxrwxr-x 1 semi semi 95784 Apr 25 13:36 wish
+-rw-rw-r-- 1 semi semi 18449 Apr 25 13:36 wish.c
+XZs
+drwx------  3 root root 4096 Apr 20 08:23 systemd-private-fdc013ae56374fe4b0480b534a9a8494-colord.service-mA0MUe
+drwx------  3 root root 4096 Apr 20 08:23 systemd-private-fdc013ae56374fe4b0480b534a9a8494-ModemManager.service-g5n8Mi
+drwx------  3 root root 4096 Apr 20 08:23 systemd-private-fdc013ae56374fe4b0480b534a9a8494-switcheroo-control.service-KLqWIf
+drwx------  3 root root 4096 Apr 20 08:23 systemd-private-fdc013ae56374fe4b0480b534a9a8494-systemd-logind.service-wp814g
+drwx------  3 root root 4096 Apr 21 08:43 systemd-private-fdc013ae56374fe4b0480b534a9a8494-systemd-resolved.service-VQ7Xji
+drwx------  3 root root 4096 Apr 21 08:43 systemd-private-fdc013ae56374fe4b0480b534a9a8494-systemd-timesyncd.service-Fq2Iff
+drwx------  3 root root 4096 Apr 20 08:23 systemd-private-fdc013ae56374fe4b0480b534a9a8494-upower.service-NXxZkj
+drwxrwxrwt  2 root root 4096 Apr 20 08:23 .Test-unix
+drwx------  2 semi semi 4096 Apr 25 13:37 tracker-extract-files.1000
+drwx------  2 gdm  gdm  4096 Apr 20 08:23 tracker-extract-files.125
+drwxrwxrwt  2 root root 4096 Apr 21 02:52 VMwareDnD
+drwx------  2 root root 4096 Apr 21 08:43 vmware-root_18861-2083419073
+drwx------  2 root root 4096 Apr 21 08:43 vmware-root_18950-2689817834
+drwx------  2 root root 4096 Apr 20 08:23 vmware-root_756-2965382642
+-r--r--r--  1 gdm  gdm    11 Apr 20 08:23 .X1024-lock
+-r--r--r--  1 gdm  gdm    11 Apr 20 08:23 .X1025-lock
+drwxrwxrwt  2 root root 4096 Apr 20 08:25 .X11-unix
+drwxrwxrwt  2 root root 4096 Apr 20 08:23 .XIM-unix
+root 4096 Apr 20 08:23 vmware-root_756-2965382642
+-r--r--r--  1 gdm  gdm    11 Apr 20 08:23 .X1024-lock
+-r--r--r--  1 gdm  gdm    11 Apr 20 08:23 .X1025-lock
+drwxrwxrwt  2 root root 4096 Apr 20 08:25 .X11-unix
+drwxrwxrwt  2 root root 4096 Apr 20 08:23 .XIM-unix
+25-lock
+drwxrwxrwt  2 root root 4096 Apr 20 08:25 .X11-unix
+drwxrwxrwt  2 root root 4096 Apr 20 08:23 .XIM-unix

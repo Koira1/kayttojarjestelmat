@@ -1,0 +1,8 @@
+yhteensä 60
+ 4 -rw-rw-r-- 1 semi semi    16 Apr 23 08:56 batch.txt
+ 0 -rw-rw-r-- 1 semi semi     0 Apr 18 06:22 ls
+ 4 -rw-rw-r-- 1 semi semi   376 Apr 23 09:05 output
+ 4 -rw-rw-r-- 1 semi semi    22 Apr 22 07:59 output.txt
+ 4 -rw-rw-r-- 1 semi semi    24 Apr 18 05:07 test
+24 -rwxrwxr-x 1 semi semi 22496 Apr 23 09:05 wish
+20 -rw-rw-r-- 1 semi semi 17628 Apr 23 09:04 wish.c
